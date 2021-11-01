@@ -1,0 +1,35 @@
+{
+  "name": "rays-kitchen",
+  "version": "1.0.0",
+  "description": "This is a sample website for restaurant reservation",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raymondariwoola/rays-kitchen.git"
+  },
+  "keywords": [
+    "Restaurant",
+    "order",
+    "food",
+    "reservation"
+  ],
+  "author": "Raymond Ariwoola",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^10.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.0.4",
+    "nodemon": "^2.0.14"
+  },
+  "bugs": {
+    "url": "https://github.com/raymondariwoola/rays-kitchen/issues"
+  },
+  "homepage": "https://github.com/raymondariwoola/rays-kitchen#readme"
+}

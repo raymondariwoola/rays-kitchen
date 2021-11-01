@@ -1,0 +1,129 @@
+<%- include('partials/header') %>
+
+
+  <header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner"
+    style="background-image: url(https://images.unsplash.com/photo-1606913079621-e64bd28682ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="gtco-container">
+      <div class="row">
+        <div class="col-md-12 col-md-offset-0 text-left">
+          <div class="row row-mt-15em">
+            <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+              <h1 class="cursive-font">All in good taste!</h1>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- <div class="gtco-section">
+    <div class="gtco-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6 animate-box">
+            <h3>Get In Touch</h3>
+            <form action="#">
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="sr-only" for="name">Name</label>
+                  <input type="text" id="name" class="form-control" placeholder="Your firstname">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="sr-only" for="email">Email</label>
+                  <input type="text" id="email" class="form-control" placeholder="Your email address">
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label class="sr-only" for="message">Message</label>
+                  <textarea name="message" id="message" cols="30" rows="10" class="form-control"
+                    placeholder="Write us something"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary">
+              </div>
+
+            </form>
+          </div>
+          <div class="col-md-5 col-md-push-1 animate-box">
+
+            <div class="gtco-contact-info">
+              <h3>Contact Information</h3>
+              <ul>
+                <li class="address">198 West 21th Street, <br> Suite 721 New York NY 10016</li>
+                <li class="phone"><a href="tel://1234567920">+ 1235 2355 98</a></li>
+                <li class="email"><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+                <li class="url"><a href="http://FreeHTML5.co">FreeHTML5.co</a></li>
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <div class="gtco-section">
+    <div class="gtco-container">
+      <div class="row">
+        <div class="col-sm-6">
+          Select food
+          <ul class="food-items">
+            <li class="food-item">Baked Plantains  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
+            <li class="food-item">Fried Plantains  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
+            <li class="food-item">Buffalo Chicken Drumsticks  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
+            <li class="food-item">Spaghetti Bolognese  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
+            <li class="food-item">Shrimp Fried Rice  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
+            <li class="food-item">Classic Corn Salad  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          Select food
+          <ul class="selected-food-items">
+            <li class="food-item selected">Baked Plantains <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
+            <li class="food-item selected">Fried Plantains <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
+            <li class="food-item selected">Buffalo Chicken Drumsticks <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
+            <li class="food-item selected">Spaghetti Bolognese <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
+            <li class="food-item selected">Shrimp Fried Rice <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
+            <li class="food-item selected">Classic Corn Salad <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
+          </ul>
+        </div>
+
+            <form action="/reservation">
+              <button class="btn btn-success submit" type="submit">Submit Reservation</button>
+            </form>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gtco-cover gtco-cover-sm" style="background-image: url(images/img_bg_1.jpg)"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="gtco-container text-center">
+      <div class="display-t">
+        <div class="display-tc">
+          <h1>&ldquo; Their high quality of service makes me back over and over again!&rdquo;</h1>
+          <p>&mdash; John Doe, CEO of XYZ Co.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const ctaBtn = document.getElementById("btn-cta");
+    ctaBtn.style.display = "none";
+  </script>
+
+  <%- include('partials/footer') %>
