@@ -1,5 +1,5 @@
 // all .js and .mjs files are interpreted as ES modules
-import { } from "dotenv/config";
+import {} from "dotenv/config";
 import express from "express"
 import bodyParser from "body-parser"
 import ejs from "ejs"
@@ -160,33 +160,33 @@ app.post("/delete", function (req, res) {
 
 
 
-// Dynamic Route parameters based on path. below path starts at "/".
-app.get("/:customListName", function (req, res) {
-    const customListName = _.capitalize(req.params.customListName);
+// // Dynamic Route parameters based on path. below path starts at "/".
+// app.get("/:customListName", function (req, res) {
+//     const customListName = _.capitalize(req.params.customListName);
 
-    //"List" is the model name, "customListName" is the condition/search criteria
-    List.find({
-        name: customListName
-    }, function (err, foundResults) {
-        if (!err) { // if no error then proceed with the below operation
-            if (foundResults.length == 0) { // if result is empty (Not found in DB), then add as new
-                const list = new List({
-                    name: customListName,
-                    items: defaultItems
-                });
-                list.save(); // save the new list
-                console.log("Not Found...\nNewly Added");
-                res.redirect("/" + customListName);
-            } else { // if name already in DB, render existing item
-                console.log("Found");
-                res.render("list", {
-                    listTitle: foundResults[0].name,
-                    newListItems: foundResults[0].items
-                });
-            }
-        }
-    });
-});
+//     //"List" is the model name, "customListName" is the condition/search criteria
+//     List.find({
+//         name: customListName
+//     }, function (err, foundResults) {
+//         if (!err) { // if no error then proceed with the below operation
+//             if (foundResults.length == 0) { // if result is empty (Not found in DB), then add as new
+//                 const list = new List({
+//                     name: customListName,
+//                     items: defaultItems
+//                 });
+//                 list.save(); // save the new list
+//                 console.log("Not Found...\nNewly Added");
+//                 res.redirect("/" + customListName);
+//             } else { // if name already in DB, render existing item
+//                 console.log("Found");
+//                 res.render("list", {
+//                     listTitle: foundResults[0].name,
+//                     newListItems: foundResults[0].items
+//                 });
+//             }
+//         }
+//     });
+// });
 
 
 // handles about routes

@@ -435,7 +435,7 @@ figure {
 }
 
 #gtco-header .form-wrap .tab-content .form-control {
-  color: #fff !important;
+  color: #000 !important;
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -2277,6 +2277,16 @@ li.food-item {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
+}
+
+.form-control {
+  background-color: #d1d1d18a;
+}
+
+.header-1 {
+  position: absolute;
+  top: 40%;
+  right: 10%;
 }
 
 /*# sourceMappingURL=style.css.map */

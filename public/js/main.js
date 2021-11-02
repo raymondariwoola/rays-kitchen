@@ -318,6 +318,22 @@
 	};
 
 
+
+	$('.owl-carousel2').owlCarousel({
+		items: 2,
+		loop: true,
+		margin: 10,
+		merge: true,
+		responsive: {
+			678: {
+				mergeFit: true
+			},
+			1000: {
+				mergeFit: true
+			}
+		}
+	});
+
 	
 	$(function(){
 		mobileMenuOutsideClick();
