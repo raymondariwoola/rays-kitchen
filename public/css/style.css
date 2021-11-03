@@ -2267,16 +2267,23 @@ form label {
 
 
 
-.food-items,
-.selected-food-items {
+.food-items {
   padding: 5px;
   max-width: 340px;
 }
 
+.selected-food-items {
+  padding: 5px;
+  max-width: 450px;
+}
+
 li.food-item {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
+  border-bottom: .2px solid #000;
+  transition: all .5s ease-in;
+  
 }
 
 .form-control {
@@ -2288,5 +2295,47 @@ li.food-item {
   top: 40%;
   right: 10%;
 }
+
+
+input.disabled {
+  max-width: 34px;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+p.food-item-name {
+  padding: 0px !important;
+  margin: 0px;
+  flex: 0 0 50%;
+}
+
+.reserve-form {
+  text-align: center;
+  padding-top: 5rem;
+}
+
+h1.user-selected-food.food-selection {
+  font-weight: 300;
+  font-family: "Kaushan Script", cursive !important;
+}
+
+.food-reservation-Section {
+  transition: all .5s ease-in;
+}
+
+.food-reservation-Section:hover {
+  box-shadow: 5px 5px 10px 5px #0000000d;
+}
+
+.add-Item:hover {
+  transform: scale(1.5);
+}
+
+.food-item:hover {
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.233);
+}
+
+
 
 /*# sourceMappingURL=style.css.map */

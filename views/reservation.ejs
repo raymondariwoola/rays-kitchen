@@ -7,12 +7,15 @@
     <h1 class="cursive-font header-1">All in good taste!</h1>
   </header>
 
+
   <div class="gtco-section">
     <div class="gtco-container">
       <div class="row">
         <div class="col-sm-6">
-          Select food
-          <ul class="food-items">
+          <h1 class="food-menu food-selection">
+            Menu
+          </h1>
+          <ul class="food-items food-reservation-Section">
             <li class="food-item">Baked Plantains  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
             <li class="food-item">Fried Plantains  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
             <li class="food-item">Buffalo Chicken Drumsticks  <a href="#" class="btn btn-secondary add-Item">Add</a></li>
@@ -22,24 +25,21 @@
           </ul>
         </div>
         <div class="col-sm-6">
-          Select food
-          <ul class="selected-food-items">
-            <li class="food-item selected">Baked Plantains <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
-            <li class="food-item selected">Fried Plantains <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
-            <li class="food-item selected">Buffalo Chicken Drumsticks <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
-            <li class="food-item selected">Spaghetti Bolognese <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
-            <li class="food-item selected">Shrimp Fried Rice <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
-            <li class="food-item selected">Classic Corn Salad <a href="#" class="btn btn-secondary remove-Item">Remove</a></li>
-          </ul>
+          <h1 class="user-selected-food food-selection">
+          Selected Items
+          </h1>
+          <ul class="selected-food-items food-reservation-Section">
+             </ul>
         </div>
 
-            <form action="/reservation">
-              <button class="btn btn-success submit" type="submit">Submit Reservation</button>
-            </form>
       </div>
     </div>
 
+    <div class="reserve-form">
+      <button class="btn btn-success submit" type="submit">Submit Reservation</button>
+    </div>
   </div>
+
 
   <div class="gtco-cover gtco-cover-sm" style="background-image: url(images/img_bg_1.jpg)"
     data-stellar-background-ratio="0.5">
