@@ -6,6 +6,10 @@ import ejs from "ejs";
 import mongoose from "mongoose";
 import _ from 'lodash';
 import nodemailer from 'nodemailer';
+import {
+    reservationEmail
+} from './emailTemplate.js'
+
 
 const app = express();
 const dbUsername = process.env.DB_USERNAME;
@@ -107,79 +111,37 @@ app.post("/reservation", function (req, res) {
 
 
 function sendEmail(userEmail) {
-    const context = reservationData;
 
-    const mailOptions = {
-        from: 'raymondariwoola@gmail.com',
-        to: userEmail,
-        subject: 'Your reservation is confirmed',
-        html: ''
-    };
+    const registerUser = async (req, res) => {
+        const {
+            customerName,
+            reservationNumber,
+            persons,
+            date,
+            time,
+            emailAddress
+        } = reservationData;
 
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
+        const output = reservationEmail(customerName, reservationNumber, persons, date, time, emailAddress);
+
+        let mailOptions = {
+            from: 'raymondariwoola@gmail.com',
+            to: userEmail,
+            subject: 'Your reservation is confirmed!',
+            text: 'Hello World',
+            html: output,
         }
-    });
+
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
+    }
+    console.log(registerUser());
 }
-const emailDocument = `<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
-<style>
-	* {
-		box-sizing: border-box;
-	}
-
-	body {
-		margin: 0;
-		padding: 0;
-	}
-
-	h1 {
-		padding: 30px 20px;
-		text-decoration: underline;
-	}
-
-	.container {
-		max-width: 500px;
-		    padding: 20px;
-	}
-</style>
-
-<div class="container">
-	<h1 style="font-size:30px;"><strong>Your reservation is confirmed</strong></h1>
-	<br>
-	<span style="font-size:22px;">Ray's Kitchen</span>
-	<br>
-	<p style="font-size:15px;">Table for 2 on Saturday, July 18, 2020 at 7:00 pm</p>
-	<br>
-	<p style="margin: 0; font-size: 14px; text-align: left ;">
-		<strong><span style="font-size:15px;">Name:</span></strong>
-	</p>
-	<br>
-	<p style="margin: 0; font-size: 14px; text-align: left;">
-		<strong><span style="font-size:15px;">Confirmation # :</span></strong>
-	</p>
-	<br>
-
-	<div style="padding-top:15px;padding-bottom:20px;">
-		<div style="font-family: Arial, sans-serif">
-			<div
-				style="font-size: 12px; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; mso-line-height-alt: 18px; color: #555555; line-height: 1.5;">
-				<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 22.5px;">
-					<span style="font-size:15px;">Apartment number 407,</span>
-				</p>
-				<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 22.5px;">
-					<span style="font-size:15px;">City Tower Block B1.</span>
-				</p>
-				<p style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 22.5px;">
-					<span style="font-size:15px;">Ajman, UAE.</span>
-				</p>
-			</div>
-		</div>
-	</div>
-</div>`;
-
 
 
 // Listening ports
