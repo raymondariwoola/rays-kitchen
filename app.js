@@ -109,16 +109,14 @@ app.post("/", function (req, res) {
 
 app.post("/reservation", function (req, res) {
     const foood = (req.body.data).split(",");
-
     reservationData.foodItems = foood;
     const newReservationnewReservation = new Item({
         ...reservationData
     });
 
-    // newReservationnewReservation.save();
+    newReservationnewReservation.save();
     // sendEmail(userEmail); // send email
-    console.log("Post  /reservation");
-    res.redirect("/"); // redirect user to the completed page
+    res.redirect("/completed"); // redirect user to the completed page
 });
 
 

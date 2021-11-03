@@ -2283,7 +2283,7 @@ li.food-item {
   justify-content: space-between;
   border-bottom: .2px solid #000;
   transition: all .5s ease-in;
-  
+
 }
 
 .form-control {
@@ -2336,6 +2336,34 @@ h1.user-selected-food.food-selection {
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.233);
 }
 
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-header,
+.reservation-text {
+  align-self: center;
+}
+
+table.reservation-details {
+  max-width: 20vw;
+  height: 20vh;
+}
+
+td {
+  font-size: 2rem;
+}
+
+.booking-ref-val {
+  font-family: inherit;
+  font-weight: 100;
+}
+
+.reservation-text>span {
+  font-weight: bold;
+  text-decoration: underline;
+}
 
 
 /*# sourceMappingURL=style.css.map */

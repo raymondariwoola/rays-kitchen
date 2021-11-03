@@ -6,33 +6,51 @@
     <div class="overlay"></div>
   </header>
 
-  <!-- <div class="gtco-section">
+  <div class="gtco-section">
     <div class="gtco-container">
-      <div class="row">
-        <div class="col-sm-6">
-          <h1 class="food-menu food-selection">
-                      
-        </div>
-      </div>
-    </div>
-  </div> -->
+      <div class="main-wrapper">
+        <h1 class="reservation-header">
+          Reservation confirmed
+        </h1>
+        <p class="reservation-text">
+          Hi <%= info.customerName %>, we are pleased to inform you that your reservation request has been received and confirmed.
+        </p>
 
-  <div class="container">
-    <div class="main-wrapper">
-      <h1 class="reservation-header">
-        Reservation confirmed
-      </h1>
-      <p class="reservation-text">
-        Hi Raymond, we are pleased to inform you that your reservation request has been received and confirmed.
-      </p>
-      <h2 class="reservation-details">
-        <p class="booking-ref">Reference Number: <span class="booking-ref-val"><%= info.reservationNumber %></span></p>
-        <p class="booking-ref">Reservation Date: <span class="booking-ref-val"><%= info.date %></span></p>
-        <p class="booking-ref">Reservation Time: <span class="booking-ref-val"><%= info.time %></span></p>
-        <p class="booking-ref">Number of Guests: <span class="booking-ref-val"><%= info.persons %></span></p>
-      </h2>
+        <table class="reservation-details">
+          <tr>
+            <td>Reference Number:</td>
+            <td><span class="booking-ref-val">
+                <%= info.reservationNumber %>
+              </span></td>
+          </tr>
+          <tr>
+            <td>Reservation Date:</td>
+            <td><span class="booking-ref-val">
+                <%= info.date %>
+              </span></td>
+          </tr>
+          <tr>
+            <td>Reservation Time:</td>
+            <td><span class="booking-ref-val">
+                <%= info.time %>
+              </span></td>
+          </tr>
+          <tr>
+            <td>Number of Guests:</td>
+            <td><span class="booking-ref-val">
+                <%= info.persons %>
+              </span></td>
+          </tr>
+        </table>
+
+        <p class="reservation-text">
+          We have sent a confirmation email to your email address: <span><%= info.emailAddress %></span>.
+        </p>
+      </div>
+
     </div>
   </div>
+
 
   <script>
     const ctaBtn = document.getElementById("btn-cta");
