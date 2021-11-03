@@ -2339,16 +2339,17 @@ h1.user-selected-food.food-selection {
 .main-wrapper {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .reservation-header,
 .reservation-text {
   align-self: center;
+  text-align: center;
 }
 
 table.reservation-details {
-  max-width: 20vw;
-  height: 20vh;
+  max-width: 50%;
 }
 
 td {
@@ -2365,5 +2366,8 @@ td {
   text-decoration: underline;
 }
 
+.reservation-text{
+  padding-top: 35px;
+}
 
 /*# sourceMappingURL=style.css.map */
