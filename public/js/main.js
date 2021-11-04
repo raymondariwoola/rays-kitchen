@@ -418,38 +418,14 @@ function removeItem(x, y) {
 
 }
 
-
-
-
-const btn = document.querySelector('.submit');
+$(".chat-coming-soon").mouseenter(()=>{
+	$(".chat-coming-soon").html('<i class="icon-heart-outlined"></i>Coming soon');
+});
+$(".chat-coming-soon").mouseleave(() => {
+	$(".chat-coming-soon").html('<i class="icon-chat"></i> Live Chat');
+});
 
 
 $(".submit").mouseenter((e) => {
 	$("#hiidenData").val(chosenFood);
 })
-
-// function sendData(data) {
-// 	const XHR = new XMLHttpRequest();
-// 	let urlEncodedData = "",
-// 		urlEncodedDataPairs = [],
-// 		name;
-// 	for (name in data) {
-// 		urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
-// 	}
-// 	urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-// 	XHR.addEventListener('load', function (event) {
-// 		console.log('Data sent');
-// 	});
-// 	XHR.addEventListener('error', function (event) {
-// 		console.log('Oops! Something went wrong.\n' + event);
-// 	});
-// 	XHR.open('POST', '/reservation');
-// 	XHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-// 	XHR.send(urlEncodedData);
-// }
-
-// btn.addEventListener('click', function () {
-// 	sendData({
-// 		data: chosenFood
-// 	});
-// });

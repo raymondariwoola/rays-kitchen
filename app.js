@@ -6,9 +6,7 @@ import ejs from "ejs";
 import mongoose from "mongoose";
 import _ from 'lodash';
 import nodemailer from 'nodemailer';
-import {
-    reservationEmail
-} from './emailTemplate.js';
+import {reservationEmail, reservationEmailFull} from './emailTemplate.js';
 import moment from 'moment';
 
 
@@ -47,7 +45,7 @@ const reservationSchema = new mongoose.Schema({
     customerName: String,
     reservationNumber: String,
     foodItems: [String],
-    persons: Number,
+    persons: String,
     date: String,
     time: String,
     emailAddress: String
@@ -75,8 +73,6 @@ app.get("/", function (req, res) {
             const thisDate = moment(item.date, 'DD/MM/YYYY').format("MM/DD/YYYY");
             reservationDates.push(thisDate);
         });
-
-        console.log(reservationDates);
         res.render("home", {
             Dates: reservationDates
         });
@@ -85,6 +81,10 @@ app.get("/", function (req, res) {
 
 app.get("/reservation", function (req, res) {
     res.render("reservation");
+});
+
+app.get("/myreservations", function (req, res) {
+    res.render("myreservations");
 });
 
 app.get("/completed", function (req, res) {
@@ -134,7 +134,7 @@ function sendEmail(userEmail) {
             emailAddress
         } = reservationData;
 
-        const output = reservationEmail(customerName, reservationNumber, persons, date, time, emailAddress);
+        const output = reservationEmailFull(customerName, reservationNumber, persons, date, time, emailAddress);
 
         let mailOptions = {
             from: 'raymondariwoola@gmail.com',

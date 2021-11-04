@@ -2391,5 +2391,30 @@ td.disabled:hover::after {
   font-weight: bold;
 }
 
+#otp,#search {
+  position: relative;
+  outline: none;
+  border: none;
+}
+
+button.search, .otp {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  height: 100%;
+  transition: all .8s ease-in-out;
+}
+
+button.search:hover {
+  transition: all .8s ease-in-out;
+  width: 20%;
+}
+
+.row.form-group.enterOTP {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 /*# sourceMappingURL=style.css.map */
