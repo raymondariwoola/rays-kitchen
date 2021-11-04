@@ -63,8 +63,6 @@ var reservationData = {
     "foodItems": ""
 };
 
-
-
 // home route
 app.get("/", function (req, res) {
     const reservationDates = [];
