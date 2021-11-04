@@ -28,7 +28,8 @@
     "moment": "^2.29.1",
     "mongoose": "^6.0.4",
     "nodemailer": "^6.7.0",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "twilio": "^3.71.1"
   },
   "bugs": {
     "url": "https://github.com/raymondariwoola/rays-kitchen/issues"

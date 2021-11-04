@@ -6,9 +6,23 @@ import ejs from "ejs";
 import mongoose from "mongoose";
 import _ from 'lodash';
 import nodemailer from 'nodemailer';
-import {reservationEmail, reservationEmailFull} from './emailTemplate.js';
+import {reservationEmail,reservationEmailFull} from './emailTemplate.js';
 import moment from 'moment';
+import http from 'http';
+import {
+    createRequire
+} from "module";
+const require = createRequire(
+    import.meta.url);
 
+const accountSid = process.env.TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
+const authToken = process.env.TWILIO_AUTH_TOKEN; // Your Auth Token from www.twilio.com/console
+
+const client = require('twilio')(accountSid, authToken, {
+    lazyLoading: true
+});
+
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 const app = express();
 const dbUsername = process.env.DB_USERNAME;
@@ -63,10 +77,20 @@ var reservationData = {
     "foodItems": ""
 };
 
+function sendSMS() {
+    client.messages
+        .create({
+            body: 'SMS sample',
+            from: '+17272953629',
+            to: '+971527037359'
+        })
+        .then(message => console.log(message.sid));
+}
 
 
 // home route
 app.get("/", function (req, res) {
+    // sendSMS();
     const reservationDates = [];
     Item.find({}, function (err, result) {
         result.forEach((item) => {
@@ -121,6 +145,16 @@ app.post("/reservation", function (req, res) {
     res.redirect("/completed"); // redirect user to the completed page
 });
 
+app.post('/sms', (req, res) => {
+    const twiml = new MessagingResponse();
+
+    twiml.message('SMS received');
+
+    res.writeHead(200, {
+        'Content-Type': 'text/xml'
+    });
+    res.end(twiml.toString());
+});
 
 
 function sendEmail(userEmail) {
@@ -154,6 +188,10 @@ function sendEmail(userEmail) {
     }
 }
 
+
+http.createServer(app).listen(1337, () => {
+    console.log('Express server listening on port 1337');
+});
 
 // Listening ports
 let port = process.env.PORT; // Environment port
