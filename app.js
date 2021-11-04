@@ -8,7 +8,8 @@ import _ from 'lodash';
 import nodemailer from 'nodemailer';
 import {
     reservationEmail
-} from './emailTemplate.js'
+} from './emailTemplate.js';
+import moment from 'moment';
 
 
 const app = express();
@@ -65,9 +66,21 @@ var reservationData = {
 };
 
 
+
 // home route
 app.get("/", function (req, res) {
-    res.render("home");
+    const reservationDates = [];
+    Item.find({}, function (err, result) {
+        result.forEach((item) => {
+            const thisDate = moment(item.date, 'DD/MM/YYYY').format("MM/DD/YYYY");
+            reservationDates.push(thisDate);
+        });
+
+        console.log(reservationDates);
+        res.render("home", {
+            Dates: reservationDates
+        });
+    });
 });
 
 app.get("/reservation", function (req, res) {
@@ -111,7 +124,6 @@ app.post("/reservation", function (req, res) {
 
 
 function sendEmail(userEmail) {
-
     const registerUser = async (req, res) => {
         const {
             customerName,
@@ -140,7 +152,6 @@ function sendEmail(userEmail) {
             }
         });
     }
-    console.log(registerUser());
 }
 
 

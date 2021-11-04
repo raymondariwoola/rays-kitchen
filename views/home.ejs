@@ -1,216 +1,218 @@
 <%- include('partials/header') %>
 
+<script type="text/javascript">
+  var blockedDates = <%- JSON.stringify(Dates) %>;
+</script>
 
-  <header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner"
-    style="background-image: url(https://images.unsplash.com/photo-1606913079621-e64bd28682ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="gtco-container">
-      <div class="row">
-        <div class="col-md-12 col-md-offset-0 text-left">
-          <div class="row row-mt-15em">
-            <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-              <h1 class="cursive-font">All in good taste!</h1>
-            </div>
-            <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight" id="reservation">
-              <div class="form-wrap">
-                <div class="tab">
+<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner"
+  style="background-image: url(https://images.unsplash.com/photo-1606913079621-e64bd28682ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="gtco-container">
+    <div class="row">
+      <div class="col-md-12 col-md-offset-0 text-left">
+        <div class="row row-mt-15em">
+          <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+            <h1 class="cursive-font">All in good taste!</h1>
+          </div>
+          <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight" id="reservation">
+            <div class="form-wrap">
+              <div class="tab">
 
-                  <div class="tab-content">
-                    <div class="tab-content-inner active" data-content="signup">
-                      <h3 class="cursive-font">Table Reservation</h3>
-                      <form action="/" method="post">
-                        <div class="row form-group">
-                          <div class="col-md-12">
-                            <label for="activities">Persons</label>
-                            <select name="activities" id="activities" class="form-control" required>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5plus">5+</option>
-                            </select>
-                          </div>
+                <div class="tab-content">
+                  <div class="tab-content-inner active" data-content="signup">
+                    <h3 class="cursive-font">Table Reservation</h3>
+                    <form action="/" method="post">
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <label for="activities">Persons</label>
+                          <select name="activities" id="activities" class="form-control" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5plus">5+</option>
+                          </select>
                         </div>
-                        <div class="row form-group">
-                          <div class="col-md-12">
-                            <label for="date-start">Date</label>
-                            <input type="text" id="date" name="date" class="form-control" required>
-                          </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <label for="date-start">Date</label>
+                          <input type="text" id="date" name="date" class="form-control" required>
                         </div>
-                        <div class="row form-group">
-                          <div class="col-md-12">
-                            <label for="date-start">Time</label>
-                            <input type="text" id="time" name="time" class="form-control" required>
-                          </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <label for="date-start">Time</label>
+                          <input type="text" id="time" name="time" class="form-control" required>
                         </div>
-                        <div class="row form-group">
-                          <div class="col-md-12">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                          </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <label for="name">Full Name</label>
+                          <input type="text" id="name" name="name" class="form-control" required>
                         </div>
-                        <div class="row form-group">
-                          <div class="col-md-12">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                          </div>
+                      </div>
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <label for="email">Email Address</label>
+                          <input type="email" id="email" name="email" class="form-control" required>
                         </div>
+                      </div>
 
-                        <div class="row form-group">
-                          <div class="col-md-12">
-                            <input type="submit" class="btn btn-primary btn-block" value="Reserve Now">
-                          </div>
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <input type="submit" class="btn btn-primary btn-block" value="Reserve Now">
                         </div>
-                      </form>
-                    </div>
-
+                      </div>
+                    </form>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
-
-        </div>
-      </div>
-    </div>
-  </header>
-
-
-
-  <div class="gtco-section" id="menu">
-    <div class="gtco-container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-          <h2 class="cursive-font primary-color">Our Menu</h2>
-          <p>On our menu, expect a modern take on an extensive range of delicious meals. We always recommend the most
-            appropriate variety of beer/wine to each individual guest, based upon their chosen dish or desired tastes.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <a href="images/Boli.png" class="fh5co-card-item image-popup">
-            <figure>
-              <div class="overlay"><i class="ti-plus"></i></div>
-              <img src="images/Boli.png" alt="Image" class="img-responsive">
-            </figure>
-            <div class="fh5co-text">
-              <h2>Baked Plantains (<em>Nigerian Boli</em>)</h2>
-              <p>Oven-roasted perfectly baked ripe plantains served with. A simple yet delicious west african delicacy.
-              </p>
-              <p><span class="price cursive-font">AED 0.00</span></p>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <a href="images/Dodo.png" class="fh5co-card-item image-popup">
-            <figure>
-              <div class="overlay"><i class="ti-plus"></i></div>
-              <img src="images/Dodo.png" alt="Image" class="img-responsive">
-            </figure>
-            <div class="fh5co-text">
-              <h2>Fried Plantains (<em>Nigerian Dodo</em>)</h2>
-              <p>Fried to perfections. Very sweet and soft on the inside. A simple delicious west african, jamaican and
-                cuban delicacy.</p>
-              <p><span class="price cursive-font">AED 0.00</span></p>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <a href="images/buffalo-drumsticks.jpg" class="fh5co-card-item image-popup">
-            <figure>
-              <div class="overlay"><i class="ti-plus"></i></div>
-              <img src="images/buffalo-drumsticks.jpg" alt="Image" class="img-responsive">
-            </figure>
-            <div class="fh5co-text">
-              <h2>Buffalo Chicken Drumsticks</h2>
-              <p>Delicious buffalo drumsticks, juicy baked drumsticks coated in a tasty sauce made from melted butter
-                and hot pepper sauce.</p>
-              <p><span class="price cursive-font">AED 0.00</span></p>
-            </div>
-          </a>
-        </div>
-
-
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <a href="images/pasta-bolognese.jpg" class="fh5co-card-item image-popup">
-            <figure>
-              <div class="overlay"><i class="ti-plus"></i></div>
-              <img src="images/pasta-bolognese.jpg" alt="Image" class="img-responsive">
-            </figure>
-            <div class="fh5co-text">
-              <h2>Spaghetti Bolognese</h2>
-              <p>Ground beef, onions, tomatoes and fresh herbs served with pasta</p>
-              <p><span class="price cursive-font">AED 0.00</span></p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <a href="images/Shrimp-fried-rice.jpg" class="fh5co-card-item image-popup">
-            <figure>
-              <div class="overlay"><i class="ti-plus"></i></div>
-              <img src="images/Shrimp-fried-rice.jpg" alt="Image" class="img-responsive">
-            </figure>
-            <div class="fh5co-text">
-              <h2>Shrimp Fried Rice</h2>
-              <p>Garlic, ginger, onions, sesame oil, and soy sauce, peas, carrots, corn, and bits of egg</p>
-              <p><span class="price cursive-font">AED 0.00</span></p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <a href="images/Classic-Corn-Salad.jpg" class="fh5co-card-item image-popup">
-            <figure>
-              <div class="overlay"><i class="ti-plus"></i></div>
-              <img src="images/Classic-Corn-Salad.jpg" alt="Image" class="img-responsive">
-            </figure>
-            <div class="fh5co-text">
-              <h2>Classic Corn Salad</h2>
-              <p>Sweet bursts of corn, juicy tomatoes, basil pair with a tangy, light vinaigrette.</p>
-              <p><span class="price cursive-font">AED 0.00</span></p>
-            </div>
-          </a>
         </div>
 
       </div>
     </div>
   </div>
+</header>
 
 
-  <div class="gtco-cover gtco-cover-sm" style="background-image: url(images/bg1.jpg)"
-    data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="gtco-container text-center">
 
-      <div class="owl-carousel2">
-        <div class="item" data-merge="6">
-          <div class="display-t">
-            <div class="display-tc">
-              <h1>&ldquo; Amazing experience! If you thought gourmet kitchen will leave you hungry, think again. You
-                should skip several meals before visiting this amazing place. Everything is so tasty, you cannot stop
-                yourself from having all of the dishes!&rdquo;</h1>
-              <p>&mdash; Faith, Chef's Wife.</p>
-            </div>
+<div class="gtco-section" id="menu">
+  <div class="gtco-container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+        <h2 class="cursive-font primary-color">Our Menu</h2>
+        <p>On our menu, expect a modern take on an extensive range of delicious meals. We always recommend the most
+          appropriate variety of beer/wine to each individual guest, based upon their chosen dish or desired tastes.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <a href="images/Boli.png" class="fh5co-card-item image-popup">
+          <figure>
+            <div class="overlay"><i class="ti-plus"></i></div>
+            <img src="images/Boli.png" alt="Image" class="img-responsive">
+          </figure>
+          <div class="fh5co-text">
+            <h2>Baked Plantains (<em>Nigerian Boli</em>)</h2>
+            <p>Oven-roasted perfectly baked ripe plantains served with. A simple yet delicious west african delicacy.
+            </p>
+            <p><span class="price cursive-font">AED 0.00</span></p>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <a href="images/Dodo.png" class="fh5co-card-item image-popup">
+          <figure>
+            <div class="overlay"><i class="ti-plus"></i></div>
+            <img src="images/Dodo.png" alt="Image" class="img-responsive">
+          </figure>
+          <div class="fh5co-text">
+            <h2>Fried Plantains (<em>Nigerian Dodo</em>)</h2>
+            <p>Fried to perfections. Very sweet and soft on the inside. A simple delicious west african, jamaican and
+              cuban delicacy.</p>
+            <p><span class="price cursive-font">AED 0.00</span></p>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <a href="images/buffalo-drumsticks.jpg" class="fh5co-card-item image-popup">
+          <figure>
+            <div class="overlay"><i class="ti-plus"></i></div>
+            <img src="images/buffalo-drumsticks.jpg" alt="Image" class="img-responsive">
+          </figure>
+          <div class="fh5co-text">
+            <h2>Buffalo Chicken Drumsticks</h2>
+            <p>Delicious buffalo drumsticks, juicy baked drumsticks coated in a tasty sauce made from melted butter
+              and hot pepper sauce.</p>
+            <p><span class="price cursive-font">AED 0.00</span></p>
+          </div>
+        </a>
+      </div>
+
+
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <a href="images/pasta-bolognese.jpg" class="fh5co-card-item image-popup">
+          <figure>
+            <div class="overlay"><i class="ti-plus"></i></div>
+            <img src="images/pasta-bolognese.jpg" alt="Image" class="img-responsive">
+          </figure>
+          <div class="fh5co-text">
+            <h2>Spaghetti Bolognese</h2>
+            <p>Ground beef, onions, tomatoes and fresh herbs served with pasta</p>
+            <p><span class="price cursive-font">AED 0.00</span></p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <a href="images/Shrimp-fried-rice.jpg" class="fh5co-card-item image-popup">
+          <figure>
+            <div class="overlay"><i class="ti-plus"></i></div>
+            <img src="images/Shrimp-fried-rice.jpg" alt="Image" class="img-responsive">
+          </figure>
+          <div class="fh5co-text">
+            <h2>Shrimp Fried Rice</h2>
+            <p>Garlic, ginger, onions, sesame oil, and soy sauce, peas, carrots, corn, and bits of egg</p>
+            <p><span class="price cursive-font">AED 0.00</span></p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-6">
+        <a href="images/Classic-Corn-Salad.jpg" class="fh5co-card-item image-popup">
+          <figure>
+            <div class="overlay"><i class="ti-plus"></i></div>
+            <img src="images/Classic-Corn-Salad.jpg" alt="Image" class="img-responsive">
+          </figure>
+          <div class="fh5co-text">
+            <h2>Classic Corn Salad</h2>
+            <p>Sweet bursts of corn, juicy tomatoes, basil pair with a tangy, light vinaigrette.</p>
+            <p><span class="price cursive-font">AED 0.00</span></p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="gtco-cover gtco-cover-sm" style="background-image: url(images/bg1.jpg)" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="gtco-container text-center">
+
+    <div class="owl-carousel2">
+      <div class="item" data-merge="6">
+        <div class="display-t">
+          <div class="display-tc">
+            <h1>&ldquo; Amazing experience! If you thought gourmet kitchen will leave you hungry, think again. You
+              should skip several meals before visiting this amazing place. Everything is so tasty, you cannot stop
+              yourself from having all of the dishes!&rdquo;</h1>
+            <p>&mdash; Faith, Chef's Wife.</p>
           </div>
         </div>
-        <div class="item" data-merge="6">
-          <div class="display-t">
-            <div class="display-tc">
-              <h1>&ldquo; Yum yum yum &rdquo;</h1>
-              <p>&mdash; Toby, Chef's Son.</p>
-            </div>
+      </div>
+      <div class="item" data-merge="6">
+        <div class="display-t">
+          <div class="display-tc">
+            <h1>&ldquo; Yum yum yum &rdquo;</h1>
+            <p>&mdash; Toby, Chef's Son.</p>
           </div>
         </div>
-
-
       </div>
 
 
     </div>
+
+
   </div>
+</div>
 
 
-  <%- include('partials/footer') %>
+<%- include('partials/footer') %>

@@ -326,17 +326,19 @@ let chosenFood = [];
 		}
 	};
 
+const today = new Date();
 
 	var dateTimeForm = function () {
 		// $('#date-start').datepicker();
 		$('#date').datetimepicker({
-			format: 'DD/MM/YYYY'
+			format: 'DD/MM/YYYY',
+			disabledDates: blockedDates,
+			useCurrent: true,
+			minDate: today
 		});
 		$('#time').datetimepicker({
 			format: 'LT'
 		});
-
-
 	};
 
 	var parallax = function () {

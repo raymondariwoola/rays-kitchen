@@ -2366,8 +2366,30 @@ td {
   text-decoration: underline;
 }
 
-.reservation-text{
+.reservation-text {
   padding-top: 35px;
 }
+
+
+.bootstrap-datetimepicker-widget table td.disabled,
+.bootstrap-datetimepicker-widget table td.disabled:hover {
+  color: rgb(250, 15, 15);
+}
+
+td.disabled:hover {
+  position: relative;
+}
+
+td.disabled:hover::after {
+  content: 'Not Available';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.623);
+  font-size: 14px;
+  font-weight: bold;
+}
+
 
 /*# sourceMappingURL=style.css.map */
