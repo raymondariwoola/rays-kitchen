@@ -1,4 +1,4 @@
-// all .js and .mjs files are interpreted as ES modules
+
 import {} from "dotenv/config";
 import express from "express";
 import bodyParser from "body-parser";
