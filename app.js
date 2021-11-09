@@ -10,10 +10,11 @@ import {
     reservationEmailFull
 } from './emailTemplate.js';
 import moment from 'moment';
+import sgMail from '@sendgrid/mail';
 
 // These lines make "require" available
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
+// import { createRequire } from "module";
+// const require = createRequire(import.meta.url);
 
 const app = express();
 const dbUsername = process.env.DB_USERNAME;
@@ -123,13 +124,12 @@ function sendEmail(userEmail) {
         time,
         emailAddress
     } = reservationData;
-    const sgMail = require('@sendgrid/mail')
     const output = reservationEmailFull(customerName, reservationNumber, persons, date, time, emailAddress);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
     const msg = {
         to: userEmail,
-        bcc: "ariwoolao@raymondui.com",
-        from: 'ariwoolao@raymondui.com',
+        bcc: process.env.SENDGRID_EMAIL_BCC,
+        from: process.env.SENDGRID_EMAIL_FROM,
         subject: `Your reservation is confirmed! (${date})`,
         html: output,
     }
