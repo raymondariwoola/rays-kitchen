@@ -5,9 +5,15 @@ import ejs from "ejs";
 import mongoose from "mongoose";
 import _ from 'lodash';
 import nodemailer from 'nodemailer';
-import {reservationEmail, reservationEmailFull} from './emailTemplate.js';
+import {
+    reservationEmail,
+    reservationEmailFull
+} from './emailTemplate.js';
 import moment from 'moment';
 
+// These lines make "require" available
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 
 const app = express();
 const dbUsername = process.env.DB_USERNAME;
@@ -20,20 +26,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(express.static("public"));
-
-const transporter = nodemailer.createTransport({
-    host: 'smtp.sendgrid.net',
-    port: 465,
-    service: 'sendgrid',
-    secure: false,
-    auth: {
-        user: process.env.MAILUSERNAME,
-        pass: process.env.MAILPASSWORD
-    },
-    debug: false,
-    logger: true
-});
-
 
 // Connect to Mongo DB
 mongoose.connect("mongodb+srv://" + dbUsername + ":" + dbPassword + "@cluster0.q10cz.mongodb.net/rayskitchen", {
@@ -121,36 +113,34 @@ app.post("/reservation", function (req, res) {
 });
 
 
-
+// Send email via Sendgrid API
 function sendEmail(userEmail) {
-    const registerUser = async (req, res) => {
-        const {
-            customerName,
-            reservationNumber,
-            persons,
-            date,
-            time,
-            emailAddress
-        } = reservationData;
-
-        const output = reservationEmailFull(customerName, reservationNumber, persons, date, time, emailAddress);
-
-        let mailOptions = {
-            from: 'raymondariwoola@gmail.com',
-            to: userEmail,
-            subject: 'Your reservation is confirmed!',
-            text: 'Hello World',
-            html: output,
-        }
-
-        transporter.sendMail(mailOptions, function (error, info) {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Email sent: ' + info.response);
-            }
-        });
+    const {
+        customerName,
+        reservationNumber,
+        persons,
+        date,
+        time,
+        emailAddress
+    } = reservationData;
+    const sgMail = require('@sendgrid/mail')
+    const output = reservationEmailFull(customerName, reservationNumber, persons, date, time, emailAddress);
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+    const msg = {
+        to: userEmail,
+        bcc: "ariwoolao@raymondui.com",
+        from: 'ariwoolao@raymondui.com',
+        subject: `Your reservation is confirmed! (${date})`,
+        html: output,
     }
+    sgMail
+        .send(msg)
+        .then(() => {
+            console.log('Email sent')
+        })
+        .catch((error) => {
+            console.error(error)
+        })
 }
 
 
