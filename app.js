@@ -12,14 +12,21 @@ import {
 import moment from 'moment';
 import sgMail from '@sendgrid/mail';
 
-// These lines make "require" available
+//// These lines make "require" available
 // import { createRequire } from "module";
 // const require = createRequire(import.meta.url);
+
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = require('twilio')(accountSid, authToken);
+
+// client.messages
+//       .create({body: 'Hi there Raymond', from: '+17272953629', to: '+'})
+//       .then(message => console.log(message));
 
 const app = express();
 const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
-const siteURL = "https://www.example.com/";
 
 app.set('view engine', 'ejs');
 
@@ -109,13 +116,13 @@ app.post("/reservation", function (req, res) {
     });
 
     newReservationnewReservation.save();
-    sendEmail(reservationData.emailAddress); // send email
+    sendReservationEmail(reservationData.emailAddress); // send email
     res.redirect("/completed"); // redirect user to the completed page
 });
 
 
 // Send email via Sendgrid API
-function sendEmail(userEmail) {
+function sendReservationEmail(userEmail) {
     const {
         customerName,
         reservationNumber,
